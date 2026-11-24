@@ -118,14 +118,19 @@
 
                     <asp:BoundField DataField="Lop"
                         HeaderText="Lớp" />
+                    <asp:BoundField DataField="TienAn"
+                        HeaderText="Tiền ăn" />
+                     <asp:BoundField DataField="MaSinhVien"
+                        HeaderText="Mã Sinh Viên" />
+
 
                     <asp:BoundField DataField="Quyen"
                         HeaderText="Quyền hiện tại" />
 
                     <asp:TemplateField HeaderText="Đổi quyền">
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlQuyen" runat="server"
-                                SelectedValue='<%# Eval("Quyen") %>'>
+                            <asp:DropDownList ID="ddlQuyen" runat="server">
+                                
                                 <asp:ListItem Value="User">User</asp:ListItem>
                                 <asp:ListItem Value="Admin">Admin</asp:ListItem>
                             </asp:DropDownList>

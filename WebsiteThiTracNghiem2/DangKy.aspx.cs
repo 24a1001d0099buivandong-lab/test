@@ -24,6 +24,9 @@ namespace WebsiteThiTracNghiem2
             string lop = txtLop.Text.Trim();
             string queQuan = ddlQueQuan.SelectedValue;
             string soThich = txtSoThich.Text.Trim();
+            string tienAn = txtTienAn.Text.Trim();
+            string maSinhVien = txtMaSinhVien.Text.Trim();
+
 
             // 2. Kiem tra thong tin bat buoc
             if (string.IsNullOrWhiteSpace(hoTen) ||
@@ -90,8 +93,11 @@ namespace WebsiteThiTracNghiem2
               Lop = lop,
               QueQuan = queQuan,
               SoThich = soThich,
+              TienAn = tienAn,
+              MaSinhVien = maSinhVien,
               DongYDieuKhoan = true
-              };
+              
+             };
 
             // 8. Goi lop XuLyTaiKhoan de dang ky
             try

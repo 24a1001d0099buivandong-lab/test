@@ -21,6 +21,8 @@ namespace WebsiteThiTracNghiem2
             public string TenDangNhap { get; set; }
             public string Email { get; set; }
             public string Lop { get; set; }
+            public string TienAn { get; set; }
+            public string MaSinhVien { get; set; }
             public string Quyen { get; set; }
 
             // Lưu nguyên 9 trường để không làm mất dữ liệu tài khoản.
@@ -58,9 +60,7 @@ namespace WebsiteThiTracNghiem2
             foreach (string dong in File.ReadAllLines(DuongDanFile))
             {
                 string[] p = dong.Split('|');
-
-                if (p.Length != 9)
-                    continue;
+                if (p.Length < 9 || p.Length > 12) continue;
 
                 ds.Add(new TaiKhoan
                 {
@@ -68,8 +68,10 @@ namespace WebsiteThiTracNghiem2
                     TenDangNhap = p[1],
                     Email = p[3],
                     Lop = p[4],
-                    Quyen = p[8],
-                    DongDuLieu = dong
+                    Quyen = p[p.Length - 1],
+                    DongDuLieu = dong,
+                    TienAn = p.Length >= 8 ? p[7] : "", // sỡ dư liệu cũ có thể không có trường TienAn nếu ko thì ko hiện gì
+                    MaSinhVien = p.Length >= 10 ? p[8] : "", // sỡ dư liệu cũ có thể không có trường MaSinhVien nếu ko thì ko hiện gì
                 });
             }
 
@@ -169,10 +171,10 @@ namespace WebsiteThiTracNghiem2
 
                 string[] p = tk.DongDuLieu.Split('|');
 
-                if (p.Length != 9)
-                    return;
-
-                p[8] = quyenMoi;
+                if (p.Length <9)
+                    
+                return;
+                p[p.Length - 1] = quyenMoi;
                 tk.Quyen = quyenMoi;
                 tk.DongDuLieu = string.Join("|", p);
 

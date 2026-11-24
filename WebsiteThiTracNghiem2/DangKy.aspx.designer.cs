@@ -69,6 +69,24 @@ namespace WebsiteThiTracNghiem2
         protected global::System.Web.UI.WebControls.TextBox txtLop;
 
         /// <summary>
+        /// txtTienAn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTienAn;
+
+        /// <summary>
+        /// txtMaSinhVien control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMaSinhVien;
+
+        /// <summary>
         /// ddlQueQuan control.
         /// </summary>
         /// <remarks>

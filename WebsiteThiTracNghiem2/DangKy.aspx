@@ -79,6 +79,23 @@
                         CssClass="form-control"
                         placeholder="Nhập lớp của bạn" />
                 </div>
+                 <div class="form-group">
+                    <label>Tiền ăn</label>
+                     <asp:TextBox ID="txtTienAn" runat="server"
+                      ClientIDMode="Static"
+                       CssClass="form-control"
+                       tetMode="Number"
+                          placeholder="Nhập tiền của bạn (VND)." />
+                         </div>
+                 <div class="form-group">
+    <label>Mã Sinh Viên</label>
+     <asp:TextBox ID="txtMaSinhVien" runat="server"
+      ClientIDMode="Static"
+       CssClass="form-control"
+      
+          placeholder="Nhập mã sinh viên của bạn." />
+         </div>
+
 
                 <div class="form-group">
                     <label>Quê quán *</label>
@@ -94,7 +111,7 @@
                         <asp:ListItem Text="Khác" Value="Khác" />
                     </asp:DropDownList>
                 </div>
-
+   
                 <div class="form-group">
                     <label>Sở thích *</label>
                     <asp:TextBox ID="txtSoThich" runat="server"

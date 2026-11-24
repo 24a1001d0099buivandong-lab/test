@@ -29,6 +29,12 @@ namespace WebsiteThiTracNghiem2
 
             // So thich
             public string SoThich { get; set; }
+            // Tiền ăn
+            public string TienAn { get; set; }
+
+            // Mã sinh viên
+            public string MaSinhVien { get; set; }
+
 
             // Trang thai dong y dieu khoan
             public bool DongYDieuKhoan { get; set; }
@@ -51,7 +57,7 @@ namespace WebsiteThiTracNghiem2
 
                     string[] cot = dong.Split('|');
 
-                    if (cot.Length != 9)
+                    if (cot.Length <9) // có sửa theo kiểu mỗi lần thêm trường thi + 1 dùng hàm != ( vd != 10 )
                         continue;
 
                     if (string.Equals(
@@ -67,7 +73,14 @@ namespace WebsiteThiTracNghiem2
                             Lop = cot[4],
                             QueQuan = cot[5],
                             SoThich = cot[6],
-                            DongYDieuKhoan = cot[7] == "True"
+                            DongYDieuKhoan = cot.Length == 9
+                                ? cot[7] == "True"
+            :                     cot.Length >= 11 && cot[9] == "True",
+
+                            TienAn = cot.Length >= 10 ? cot[7] : "",
+
+                            MaSinhVien = cot.Length >= 11 ? cot[8] : "",
+
                         };
                     }
                 }
@@ -139,7 +152,7 @@ namespace WebsiteThiTracNghiem2
                 {
                     string[] cot = danhSach[i].Split('|');
 
-                    if (cot.Length != 9)
+                    if (cot.Length <=8) 
                         continue;
 
                     if (string.Equals(
@@ -300,8 +313,10 @@ namespace WebsiteThiTracNghiem2
                     taiKhoan.Lop,                   // Cot 5: Lop
                     taiKhoan.QueQuan,               // Cot 6: Que quan
                     taiKhoan.SoThich,               // Cot 7: So thich
-                    taiKhoan.DongYDieuKhoan.ToString(), // Cot 8: Dong y dieu khoan
-                    quyen                           // Cot 9: Quyen tai khoan
+                    taiKhoan.TienAn,                // Cot 8: Tien an
+                    taiKhoan.MaSinhVien,            // Cot 9: Ma sinh vien
+                    taiKhoan.DongYDieuKhoan.ToString(), // Cot 10: Dong y dieu khoan
+                    quyen                           // Cot 11: Quyen tai khoan
                 });
 
                 // Ghi them tai khoan moi vao cuoi file TaiKhoan.txt
